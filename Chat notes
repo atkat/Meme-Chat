@@ -1,0 +1,27 @@
+// input.match(regexNo)
+// input.match(regexYes)
+
+var regexNo = /.*no.*/gi
+
+var regexYes = /.*no.*/gi
+
+
+var images = [
+    'memes/graveyard.jpg',
+    'memes/photosynthesis.jpeg',
+    'emes/centaur_butt.jpg',
+    'memes/scream_yawn.jpg',
+    'memes/pretend_work.jpg',
+    'memes/fire_trucks.jpg',
+    'memes/underground_music.jpg',
+    'memes/carbonemissions.jpg',
+    'memes/holiday_spok.jpg',
+    'memes/are_you_free.jpg',
+    'memes/meme_dystopia.jpg',
+    'memes/escalator.jpg',
+    'memes/chart.jpg',
+    'memes/drinks.jpg',
+    'memes/silicone.jpg',
+    'memes/PopcornHotOutside.jpg'
+
+]

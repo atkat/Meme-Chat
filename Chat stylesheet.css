@@ -1,0 +1,58 @@
+body {
+    background: lavender;
+    scroll-behavior: smooth;
+}
+
+.greeting { 
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;;
+} 
+
+.chat-body {
+    position: absolute;
+    width: 400px;
+    height: 60%;
+    scroll-behavior: smooth;
+    overflow: auto;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form {
+    width: 300px;
+    position: fixed;
+    bottom: 10px;
+    margin-top: 15px;
+
+}
+.bubble {
+    font-family: Arial, Helvetica, sans-serif;;
+    color: black;
+    width: 250px;
+    position: relative; 
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.timeStamp {
+    font-size: 10px;
+    color: #999; 
+    position: absolute;
+    right: 8px;
+    bottom: 0px;
+
+   /* position: absolute;
+    bottom: 8px; */
+}
+
+
+.userMessage {
+    background-color:lemonchiffon;
+    float: right;
+   
+}
+
+.botMessage {
+    background-color:rgb(248, 215, 220);
+    float: left;
+}

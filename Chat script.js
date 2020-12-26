@@ -1,62 +1,70 @@
 
 var firstTime = true
 
+var regexNo = /(no)+/i
+var regexYes = /(yes)+/i
+
+//greeting 
+
+greeting()
+
 $("#submit").on("click", function(event){
     event.preventDefault();
 
-    var input = $("#input").val()
-
     // first interaction
-    formatMessage( $("<p>").text(input).addClass("userMessage bubble") ) 
+    
+        //cleanup
+        var input = $("#input").val() 
+        if (regexYes.test(input)) { input = 'yes'}
+        else if (regexNo.test(input)) { input = 'no'}
 
+        formatMessage( $("<p>").text(input).addClass("userMessage") ) 
+  
     // resets form  
-    $("#field")[0].reset()   
-
-    //scroll to bottom???
-    scrollToBottom ()
+    $(".form")[0].reset()   
 
     // first answer   
-    if (firstTime===true && input=='no') {
-        console.log(new Date().toString())
-        formatMessage( $("<p>").addClass("botMessage bubble").text("💩") )// .appendTo(".chat-body")
+    if (firstTime===true && input==="no") {
+        formatMessage( $("<p>").addClass("botMessage poop").text("💩") )
 
-    } else if (firstTime===true && input=='yes') {
-            formatMessage( $("<p>").addClass("botMessage bubble").text('Wicked! Would you like to see one?') )//.appendTo(".chat-body") 
+    } else if (firstTime===true && input==="yes") {
+            formatMessage( $("<p>").addClass("botMessage").text('Wicked! Would you like to see one?') )
             firstTime = false 
-  
+
             // further interaction
     } else if (firstTime===false) { 
         setTimeout( 
             function() {
-            formatMessage (genAnswer(input).addClass("botMessage bubble")) //.appendTo(".chat-body")
-            setTimeout( 
-                function(){
-                    if (input==="yes") {
-                        formatMessage($("<p>")
-                            .text("Would you like to see another one?").addClass("botMessage bubble")
-                        )   // .appendTo(".chat-body")
-                    }
-                }
-            , 500)}          
-        , 1000)
-
-    } else { formatMessage($("<p>").text("Please answer 'yes' or 'no'.").addClass(".botMessage bubble") )//.appendTo(".chat-body")
-    }
+                formatMessage (genAnswer(input).addClass("botMessage"))
+                setTimeout( 
+                    function(){
+                       if (input==="yes") {
+                            formatMessage( $("<p>")
+                              .text("Would you like to see another one?").addClass("botMessage"))
+                        }
+                    }    
+                , 700)
+            }                    
+        , 600)
+    
+    } else { formatMessage( $("<p>").text("Please answer 'Yes' or 'No'.").addClass("botMessage") ) }
+    
 })
+// evaluates user input  // Don't forget REGEX!!!
 
-//adding messages to body
-function append ($element) {
-    $element.appendTo("chat-body")
+function genAnswer (input) {            
+    if (input==="no") { 
+        return $("<p>").text("Ok baiii! See you another time!")
+    } else if (input==="yes") {
+        return generateImg()
+    } else { return $("<p>").text("Please answer 'yes' or 'no'.") }
 }
 
-// evaluates user input  // Don't forget REGEX!!!
-function genAnswer (input) {            
-        if (input==="no") { 
-            return $("<p>").text("Ok baiii! See you another time!")
-        } else if (input==="yes") {
-           return generateImg ()
-        } else {return $("<p>").text("Please answer 'yes' or 'no'.") }
-    }
+function formatMessage ($content){
+    $content.appendTo(".chat-body").addClass("bubble")
+    $("<p>").text(getTime()).addClass("timeStamp").appendTo($content)
+    $(".chat-body").scrollTop($(".chat-body")[0].scrollHeight)    // and scroll to bottom
+}
 
 // gets time
 function getTime(){
@@ -68,38 +76,29 @@ function getTime(){
     minutes =  minutes <10 ? "0" + minutes : minutes
     return hours + ":" + minutes
 }
-
-function formatMessage ($content){
-    $content.appendTo(".chat-body")
-    $("<p>").text(getTime()).addClass("timeStamp").appendTo($content)
+//greeting
+function greeting () {
+    formatMessage( $("<p>").text("YO YO YO!").addClass("botMessage greeting") ) 
+    formatMessage( $("<img>").attr("src","cat christmas tree.jpg").attr("width", "400").addClass("botMessage greeting") )
+    setTimeout( 
+        function() {
+            formatMessage( $("<p>").text("Do you like memes?").addClass("botMessage") ) 
+    }, 900)
 }
-
- // scroll to bottom
+// scroll to bottom
 function scrollToBottom () {
     //$(".chat-body").scrollTop($(document).height())
-
     setTimeout( 
         function() {
              $(".chat-body").scrollTop($(".chat-body")[0].scrollHeight) 
         }
-    , 1700)
+    ,1300)
 }
 
 function generateImg (src) {
-
     let index = Math.floor(Math.random()* images.length)
-
-    return $("<img>").attr("src",images[index]).attr("width", "300")
+    return $("<img>").attr("src",images[index]).attr("width", "400")
 }
-
-
-/* TO DO:
-
-- scroll
-- generate images
-- regex
-
-*/
 
 
 var images = [
@@ -120,4 +119,3 @@ var images = [
     'memes/silicone.jpg',
     'memes/PopcornHotOutside.jpg'
 ]
-

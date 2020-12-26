@@ -16,6 +16,7 @@ body {
     overflow: auto;
     padding: 20px;
     margin-bottom: 20px;
+    scrollbar-width: none;
 }
 
 .form {

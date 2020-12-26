@@ -1,12 +1,12 @@
 body {
     scroll-behavior: smooth;
-    background-image: url("./stars-background.jpg");
+    background-image: url("stars-background.jpg");
     background-color: #cccccc;
 }
 .greeting { 
     font-size: 20px;
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;;
+    font-family: Arial, Helvetica, sans-serif;
 } 
 
 #cats {
@@ -16,12 +16,13 @@ body {
 .chat-body {
     position: absolute;
     width: 400px;
-    height: 90%;
+    height: 88%;
     scroll-behavior: smooth;
     overflow: auto;
     padding: 20px;
     margin-bottom: 20px;
     scrollbar-width: none;
+   
 }
 
 form {
@@ -41,9 +42,7 @@ input {
     position: absolute;
     bottom: 3px;
     outline:none;
-    left: -1px;
-    border-width: 0;
-    margin-top:2;
+   
       
 }
 
@@ -72,6 +71,8 @@ button {
     position: relative; 
     padding: 20px;
     border-radius: 10px; 
+    margin-bottom: 15px;
+    margin-top: 0;
 }
 
 .timeStamp {
@@ -87,14 +88,17 @@ button {
     background-color:lemonchiffon;
     float: right;
     border-bottom-right-radius: 0px;
-   
+    margin-bottom: 15px;
+    margin-top: 0;
 }
-
 .botMessage {
     background-color:rgb(248, 215, 220);
     float: left;
     border-bottom-left-radius: 0px;
+    margin-bottom: 15px;
+    margin-top: 0;
 }
+
 .poop {
     font-size: 60px;
 }

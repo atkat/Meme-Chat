@@ -30,6 +30,7 @@ form {
     right: 0;
     bottom: 0px;
     left: 30px;
+
 }
 
 input {
@@ -41,9 +42,8 @@ input {
     border-top-right-radius: 0px;
     position: absolute;
     bottom: 3px;
-    outline:none;
-   
-      
+    outline:none;   
+    
 }
 
 button {
@@ -101,4 +101,8 @@ button {
 
 .poop {
     font-size: 60px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
 }

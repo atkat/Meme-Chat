@@ -78,7 +78,7 @@ function getTime(){
 }
 //greeting
 function greeting () {
-    formatMessage( $("<p>").text("YO YO YO!").addClass("botMessage greeting") ) 
+    formatMessage( $("<p>").text("YO YO YO! 🌲").addClass("botMessage greeting") ) 
     formatMessage( $("<img>").attr("src","cat christmas tree.jpg").attr("width", "400").addClass("botMessage greeting") )
     setTimeout( 
         function() {

@@ -1,6 +1,6 @@
 body {
     scroll-behavior: smooth;
-    background-image: url("stars-background.jpg");
+    background-image: "stars-background.jpg";
     background-color: #cccccc;
 }
 .greeting { 

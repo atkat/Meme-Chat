@@ -50,7 +50,7 @@ $("#submit").on("click", function(event){
     } else { formatMessage( $("<p>").text("Please answer 'Yes' or 'No'.").addClass("botMessage") ) }
     
 })
-// evaluates user input  // Don't forget REGEX!!!
+// evaluates user input  
 
 function genAnswer (input) {            
     if (input==="no") { 
@@ -66,9 +66,8 @@ function formatMessage ($content){
     $(".chat-body").scrollTop($(".chat-body")[0].scrollHeight)    // and scroll to bottom
 }
 
-// gets time
+// get and format time 
 function getTime(){
-    // TAKE CARE OF MINUTES 
     let date = new Date ()
     let hours = date.getHours()
     let minutes = date.getMinutes()
@@ -87,7 +86,6 @@ function greeting () {
 }
 // scroll to bottom
 function scrollToBottom () {
-    //$(".chat-body").scrollTop($(document).height())
     setTimeout( 
         function() {
              $(".chat-body").scrollTop($(".chat-body")[0].scrollHeight) 
@@ -95,11 +93,17 @@ function scrollToBottom () {
     ,1300)
 }
 
+//generates images
 function generateImg (src) {
     let index = Math.floor(Math.random()* images.length)
-    return $("<img>").attr("src",images[index]).attr("width", "400")
+    for (i=0; i<images.length; i++) {
+       let index1 = Math.floor(Math.random()* images.length)
+        if (index1==index) { 
+          return $("<img>").attr("src",images[index+1]).attr("width", "400")
+        } else { return $("<img>").attr("src",images[index+1]).attr("width", "400")
+        }
+    }
 }
-
 
 var images = [
     'memes/graveyard.jpg',
